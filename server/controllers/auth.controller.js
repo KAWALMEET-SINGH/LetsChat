@@ -5,8 +5,8 @@ import jwt from "jsonwebtoken";
 import { createToken } from "../utils/createToken.js";
 export const signIn = async (req, res, next) => {
   try {
-    const { email, password } = req.body;
-    const validUser = await User.findOne({ email });
+    const { username, password } = req.body;
+    const validUser = await User.findOne({ username });
     if (!validUser) {
       return next(errorHandler(404, "User Not Found"));
     }
