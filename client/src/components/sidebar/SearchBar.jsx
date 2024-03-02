@@ -1,11 +1,11 @@
 import React,{useState} from 'react'
 import { FaSearch } from "react-icons/fa";
 import toast from "react-hot-toast";
+import { useConversationContext } from '../../context/ConversationContext';
 
 const SearchBar = () => {
   const [search, setSearch] = useState("");
-  const selectedConversation = JSON.parse(sessionStorage.getItem("selectedConversation"))
-  const conversations = JSON.parse(sessionStorage.getItem("user_conversations"))
+  const {conversations,setConversations}=useConversationContext();
 console.log(conversations);
   const handleSubmit = (e) => {
 		e.preventDefault();

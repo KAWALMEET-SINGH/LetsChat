@@ -6,9 +6,10 @@ import { useConversationContext } from "../../context/ConversationContext";
 
 
 const Conversations = () => {
+  const { loading,conversations } = useGetConversations();
   
-  const { loading, conversations } = useGetConversations();
   const user = JSON.parse(sessionStorage.getItem("auth_user"));
+   // const conversations = JSON.parse(sessionStorage.getItem("user_conversations"))
 
   // console.log(conversations);
 

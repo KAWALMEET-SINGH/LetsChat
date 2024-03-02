@@ -5,11 +5,10 @@ import authRouter from './routes/auth.routes.js'
 import userRouter from './routes/user.routes.js'
 import messageRouter from './routes/message.routes.js'
 import { connectToDB } from "./DataBase/MongoConnect.js";
+import { app, server } from "./socket/socket.js";
 
 dotenv.config();
 connectToDB();
-
-const app = express();
 const PORT = process.env.PORT;
 
 app.use(express.json());
@@ -30,7 +29,7 @@ app.use((err,req,res,next)=>{
         message
     })
 })
-app.listen(PORT,() =>{
+server.listen(PORT,() =>{
     console.log(`server started ${PORT}`);
     }
     );
